@@ -9,5 +9,5 @@ def no_c(my_string):
             new_str.remove('C')
         else:
             break
-    s = " "
+    s = ""
     return (s.join(new_str))
