@@ -2,6 +2,6 @@
 """Module lookup"""
 
 
-def lookup(ogj):
+def lookup(obj):
     """Return attr and methods of obj"""
     return dir(obj)
