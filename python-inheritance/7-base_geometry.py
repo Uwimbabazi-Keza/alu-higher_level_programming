@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""initialize module"""
+"""Module: base_geometry (raising Exceptions and validating values)"""
 
 
 class BaseGeometry:
-    """create class"""
+    """create class BaseGeometry"""
 
     def area(self):
         """public instance that raises an Exception"""
