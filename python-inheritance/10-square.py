@@ -9,6 +9,7 @@ class Square(Rectangle):
     """class square inherit from task 9"""
     def __init__(self, size):
         """initialize"""
+        self.integer_validator("size", size)
         super().integer_validator("size", size)
         self.__size = size
     def area(self):
