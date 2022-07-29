@@ -3,14 +3,19 @@
 file using JSON representation"""
 
 
-import sys
 from os import path
+from sys import argv
+"""import modules"""
 
 
-save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
-load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
-new_list = []
-if path.isfile("add_item.json"):
-    new_list = load_from_json_file("add_item.json")
-save_to_json_file(new_list + sys.argv[1:], "add_item.json")
+"""import task 5 and 6"""
+
+if path.exists("add_item.json") is False:
+    save_to_json_file([], "add_item.json")
+my_list = load_from_json_file("add_item.json")
+for i in range(1, len(argv)):
+    my_list.append(argv[i])
+save_to_json_file(my_list, "add_item.json")
