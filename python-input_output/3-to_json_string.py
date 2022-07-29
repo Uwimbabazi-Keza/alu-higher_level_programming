@@ -4,7 +4,7 @@
 
 import json
 
+
 def to_json_string(my_obj):
     """view JSON str representation"""
     return json.dumps(my_obj)
-
