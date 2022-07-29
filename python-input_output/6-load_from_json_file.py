@@ -10,4 +10,4 @@ def save_to_json_file(my_obj, filename):
     """converts object from json file to pyobject"""
     with open(filename, 'r', encoding='utf-8') as f:
         o = json.loads(my_obj)
-        return f.write(o)
+        return f.read(o)
