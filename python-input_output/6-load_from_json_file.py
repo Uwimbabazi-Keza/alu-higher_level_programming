@@ -8,6 +8,6 @@ import json
 
 def load_from_json_file(filename): 
     """converts object from 
-    json file to pyobject"""
+    json file"""
     with open(filename, 'r', encoding='utf-8') as f:
-        return json.loads(f)
+        return json.load(f)
