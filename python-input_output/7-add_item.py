@@ -3,7 +3,6 @@
 file using JSON representation"""
 
 
-import json
 import sys
 import os
 
