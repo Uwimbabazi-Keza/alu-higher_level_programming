@@ -5,5 +5,5 @@ and returns char count added"""
 
 def append_write(filename="", text=""):
     """Appends string to end of txt file"""
-    with open(filename,'a', encoding='utf-8') as f:
+    with open(filename, 'a', encoding='utf-8') as f:
         return f.write(text)
