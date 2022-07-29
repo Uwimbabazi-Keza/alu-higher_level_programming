@@ -4,21 +4,20 @@
 
 def find_peak(list_of_integers):
     """Finds a peak in a disorgainized list"""
-     if len(list_of_integers) == 0:
-        return None
-    elif len(list_of_integers) == 1:
-        return list_of_integers[0]
+     if len(list_of_integers) % 2 == 0:
+        mid = (len(list_of_integers) // 2) - 1
+    else:
+        mid = len(list_of_integers) // 2
 
-    x = len(list_of_integers) - 1
-    l = 0
-    int_list = list_of_integers
-    while x > l:
-        h = (x + l) // 2
-        if my_list[h] <= my_list[h + 1]:
-            l = h + 1
-        elif my_list[h] <= my_list[h - 1]:
-            x = h - 1
-        elif my_list[h] >= my_list[h + 1] and my_list[h]\
-                >= my_list[h - 1]:
-            return my_list[h]
-    return my_list[l]
+    p = list_of_integers[mid]
+
+    if len(list_of_integers) <= 2:
+        return max(list_of_integers)
+    elif list_of_integers[mid - 1] <= \
+            p and p >= \
+            list_of_integers[mid + 1]:
+        return p
+    elif p < list_of_integers[mid - 1]:
+        return find_peak(list_of_integers[:mid])
+    else:
+        return find_peak(list_of_integers[mid + 1:])
