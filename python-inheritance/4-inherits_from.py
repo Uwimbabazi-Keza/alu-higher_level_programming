@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""initializate module"""
+"""Module: function inherits_from"""
 
 
 def inherits_from(obj, a_class):
