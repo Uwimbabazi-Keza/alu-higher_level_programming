@@ -13,8 +13,8 @@ class Student:
     def to_json(self, attrs=None):
         """Retrieves student"""
         attrib = {}
-        if attrs is not None and all(isinstance(keyy, str)\
-                for keyy in attrs):
+        if attrs is not None and all(isinstance(keyy, str)
+        for keyy in attrs):
             for i, j in self.__dict__.items():
                 if i in attrs:
                     attrib[i] = j
