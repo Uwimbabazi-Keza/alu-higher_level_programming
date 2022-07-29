@@ -1,23 +1,23 @@
 #!/usr/bin/python3
-"""Module: Peak"""
+"""Module: Task 6: Peak"""
 
 
 def find_peak(list_of_integers):
-    """Finds a peak in a disorgainized list"""
-     if len(list_of_integers) % 2 == 0:
-        mid = (len(list_of_integers) // 2) - 1
-    else:
-        mid = len(list_of_integers) // 2
+    """Finds a peak in a list of unsorted integers"""
+    length = len(list_of_integers)
+    if length == 0:
+        return None
+    peak = re_peak(list_of_integers, 0, length - 1)
+    return peak
 
-    p = list_of_integers[mid]
 
-    if len(list_of_integers) <= 2:
-        return max(list_of_integers)
-    elif list_of_integers[mid - 1] <= \
-            p and p >= \
-            list_of_integers[mid + 1]:
-        return p
-    elif p < list_of_integers[mid - 1]:
-        return find_peak(list_of_integers[:mid])
+def re_peak(int_list, start, end):
+    if start == end:
+        return int_list[start]
+    mid = int((start + end) // 2)
+    if int_list[mid] > int_list[mid + 1] and int_list[mid] > int_list[mid - 1]:
+        return int_list[mid]
+    if int_list[mid + 1] > int_list[mid]:
+        return re_peak(int_list, mid + 1, end)
     else:
-        return find_peak(list_of_integers[mid + 1:])
+        return re_peak(int_list, 0, mid - 1)
