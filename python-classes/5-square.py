@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-"""class square that prints area in #"""
-
+"""class square that
+prints area in #"""
 
 
 class Square:
-    """class that prints area of square in #"""
+    """class that prints
+    area of square in #"""
 
     def __init__(self, size=0):
         """Initialize"""
@@ -19,19 +20,16 @@ class Square:
     @size.setter
     def size(self, value):
         """size equals value"""
-        
         if (type(value)) is not int:
             raise TypeError("size must be an integer")
         elif value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
 
-     def my_print(self):
-         """prints area"""
-        
+    def my_print(self):
+        """prints area"""
         def area(self):
-            """gets area"""
-            
+        """gets area"""
             if self == 0:
                 print()
             else:
