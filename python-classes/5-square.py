@@ -1,12 +1,9 @@
 #!/usr/bin/python3
-"""class square that
-prints area in #"""
+"""class square that prints area in #"""
 
 
 class Square:
-    """class that prints
-    area of square in #"""
-
+    """class that prints area of square in #"""
     def __init__(self, size=0):
         """Initialize"""
         self.__size = size
@@ -14,7 +11,6 @@ class Square:
     @property
     def size(self):
         """Gets size"""
-        
         return self.__size
 
     @size.setter
@@ -32,6 +28,7 @@ class Square:
         """gets area"""
             if self == 0:
                 print()
+            """accounts for 0"""
             else:
                 for i in range(self):
                     a = '#'
