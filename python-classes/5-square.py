@@ -2,6 +2,7 @@
 """class square that prints area in #"""
 
 
+
 class Square:
     """class that prints area of square in #"""
 
@@ -17,15 +18,16 @@ class Square:
     @size.setter
     def size(self, value):
         """size equals value"""
-        if not isinstance(value, int):
+        if (type(value)) is not int:
             raise TypeError("size must be an integer")
         elif value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
 
      def my_print(self):
-         """gets area"""
+         """prints area"""
         def area(self):
+            """gets area"""
             if self == 0:
                 print()
             else:
