@@ -8,11 +8,12 @@ import requests.auth
 if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
-    req = requests.get('https://api.github.com/user',
+    req = requests.get(url='https://api.github.com/user',
                        auth=(requests.auth.HTTPBasicAuth(
                            username,
                            password)))
     try:
-        print(req.json().get('id'))
+        r = req.json()
+        print("{}".format(r["id"]))
     except Exception:
         print('None')
