@@ -9,14 +9,13 @@ import requests.auth
 if __name__ == '__main__':
     username = sys.argv[1]
     password = sys.argv[2]
-    response = requests.get(
-        url="https://api.github.com/user",
+    req = requests.get("https://api.github.com/user",
         auth=(requests.auth.HTTPBasicAuth(
             username,
             password
         )))
     try:
-        json_response = response.json()
-        print("{}".format(json_response["id"]))
+        req = req.json()
+        print("{}".format(req["id"]))
     except:
-        print(None))
+        print(None)
