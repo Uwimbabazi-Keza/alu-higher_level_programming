@@ -6,8 +6,11 @@ import requests
 import sys
 import requests.auth
 if __name__ == "__main__":
-    username = HTTPBasicAuth(sys.argv[1])
-    password = HTTPBasicAuth(sys.argv[2])
+    username = sys.argv[1]
+    password = sys.argv[2]
     req = requests.get('https://api.github.com/user',
                        auth=(username, password))
-    print(req.json().get('id'))
+    try:
+        print(req.json().get('id'))
+    except Exception:
+        print('None')
