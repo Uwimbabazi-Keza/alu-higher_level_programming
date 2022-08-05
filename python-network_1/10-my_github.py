@@ -2,11 +2,9 @@
 """Takes your GitHub credentials (username and password)
 and uses the GitHub API to display your id"""
 
-import requests
 import sys
 import requests
 import requests.auth
-import sys
 
 if __name__ == '__main__':
     username = sys.argv[1]
@@ -17,6 +15,8 @@ if __name__ == '__main__':
             username,
             password
         )))
+
+    """raisese exception"""
     try:
         json_response = response.json()
         print("{}".format(json_response["id"]))
