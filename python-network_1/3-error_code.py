@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     """raises exception"""
     try:
-        with urllib.request.urlopen(req) as r:
+        with urllib.request.urlopen(req) as response:
             r = response.read()
             print(r.decode("ascii"))
     except urllib.error.HTTPError as error:
