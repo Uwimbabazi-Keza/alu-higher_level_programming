@@ -16,3 +16,5 @@ if __name__ == "__main__":
             print(r.decode("ascii"))
     except urllib.error.HTTPError as error:
         print("Error code: {}".format(error.code))
+    except: urllib.error.URLError as error:
+        print(error.reason)
