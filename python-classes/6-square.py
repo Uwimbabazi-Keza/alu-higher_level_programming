@@ -41,10 +41,13 @@ class Square:
         """position equals value"""
         
         if (value is not tuple) or len(value) != 2:
+            """value not tuple or value out of index"""
             raise TypeError("position must be a tuple of 2 positive integer")
         elif (type(value[0]) or type(value[1])) is not int:
+            """value not int"""
             raise TypeError("position must be a tuple of 2 positive integer")
         elif value[0] < 0 or value[1] < 0:
+            """negative value"""
             raise TypeError("position must be a tuple of 2 positive integer")
         else:
             self.__position = value
@@ -54,7 +57,7 @@ class Square:
         return self.__size**2
 
     def my_print(self):
-        """prints #"""
+        """prints # """
         sz = self.__size
         psn = self.__position
         if sz == 0:
