@@ -30,6 +30,22 @@ class Square:
         self.size = size
         self.position = position
 
+
+    @property
+    def size(self):
+        """Gets size"""
+        return self.__size
+
+    @size.setter
+    def size(self, value):
+        """size equals value"""
+        if (type(value)) is not int:
+            raise TypeError("size must be an integer")
+        elif value < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = value
+
     @property
     def position(self):
         """Gets position"""
