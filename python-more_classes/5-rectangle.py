@@ -108,4 +108,4 @@ class Rectangle:
         deletes
         instance
         """
-        print("Bye rectangle. . .")
+        print("Bye rectangle...")
