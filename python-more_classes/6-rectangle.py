@@ -9,7 +9,8 @@ class Rectangle:
     """
     class Rectangle
     """
-    number_of_instances = 0 #initializes class attr
+    number_of_instances = 0  # initializes class attr
+
     def __init__(self, width=0, height=0):
 
         if type(width) is not int:
