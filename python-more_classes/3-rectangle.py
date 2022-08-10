@@ -86,8 +86,11 @@ class Rectangle:
         returns
         rectangle in #
         """
-        c = '#'
-        for i in range(self.__height-1):
-            a = c*self.__width
-            print(a)
-        return a
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        else:
+            c = '#'
+            for i in range(self.__height-1):
+                a = c*self.__width
+                print(a)
+            return a
