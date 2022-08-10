@@ -94,6 +94,7 @@ class Rectangle:
                 a = c*self.__width
                 print(a)
             return a
+
     def __repr__(self):
         """
         returns string
