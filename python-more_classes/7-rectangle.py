@@ -11,7 +11,7 @@ class Rectangle:
     """
     number_of_instances = 0  # initializes class attr
     print_symbol = '#'
-    
+
     def __init__(self, width=0, height=0):
 
         if type(width) is not int:
@@ -96,7 +96,7 @@ class Rectangle:
         else:
             c = "{}".format(self.print_symbol) * self.__width
             return'\n'.join(c for i in range(self.__height))
-    
+
     def __repr__(self):
         """
         returns string
