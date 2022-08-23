@@ -33,4 +33,4 @@ ValueError: cannot convert float NaN to integer
 
 >>> add_integer(1e1000)
 Traceback (most recent call last):
-OverflowError: int too large to convert to float
+OverflowError: cannot convert float infinity to integer
