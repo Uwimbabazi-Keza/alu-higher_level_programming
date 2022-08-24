@@ -2,23 +2,15 @@ Module 5-text_indentation
 
 >>> text_indentation = __import__('5-text_indentation').text_indentation
 
->>> text_indentation("""This is a tale of Accountability: Somebody would do it. Right? \
-Anybody could have done it, but Nobody did it. Somebody got angry about that, \
-because it was Everybody’s job. Everybody thought Anybody could do it but Nobody \
-realized that Everybody wouldn’t do it. It ended up that Everybody blamed Somebody when \
-Nobody did what Anybody could have done.
-""")
-This is a tale of Accountability:
+>>> text_indentation("Hey. Have you seen this list? List: meh.")
+Hey.
 
-Somebody would do it.
+Have you seen this list?
 
-Right?
+List:
 
-Anybody could have done it, but Nobody did it.
+meh.
 
-Somebody got angry about that, because it was Everybody’s job.
-
-Everybody thought Anybody could do it but Nobody realized that Everybody wouldn’t do it.
-
-It ended up that Everybody blamed Somebody when Nobody did what Anybody could have done.
-
+>>> text_indentation(5)
+Traceback (most recent call last):
+TypeError: text must be a string
