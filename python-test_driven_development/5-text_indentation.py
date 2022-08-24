@@ -14,6 +14,7 @@ def text_indentation(text):
 
     symbols = ['.', '?', ':']
     white_sp = True
+    text.strip()
     for t in text:
         if t == ' ' and white_sp:
             pass

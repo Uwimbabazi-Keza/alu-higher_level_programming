@@ -5,12 +5,9 @@ Module 5-text_indentation
 >>> text_indentation("Hey. Have you seen this list? List: meh.")
 Hey.
 
-
 Have you seen this list?
 
-
 List:
-
 
 meh.
 
