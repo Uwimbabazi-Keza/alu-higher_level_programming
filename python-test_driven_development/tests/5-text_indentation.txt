@@ -4,12 +4,13 @@ Module 5-text_indentation
 
 >>> text_indentation("Hey. Have you seen this list? List: meh.")
 Hey.
-
+<BLANKLINE>
 Have you seen this list?
-
+<BLANKLINE>
 List:
-
+<BLANKLINE>
 meh.
+<BLANKLINE>
 
 >>> text_indentation(5)
 Traceback (most recent call last):
