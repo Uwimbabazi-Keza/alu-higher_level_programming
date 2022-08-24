@@ -10,7 +10,6 @@ Have you seen this list?
 List:
 
 meh.
-
 >>> text_indentation(5)
 Traceback (most recent call last):
 TypeError: text must be a string
