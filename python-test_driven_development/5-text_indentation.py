@@ -11,7 +11,7 @@ def text_indentation(text):
     """
     if type(text) is not str:
         raise TypeError("text must be a string")
-    
+
     symbols = ['.', '?', ':']
     white_sp = True
     for t in text:
