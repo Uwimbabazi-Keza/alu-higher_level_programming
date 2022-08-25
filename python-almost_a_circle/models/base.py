@@ -1,21 +1,24 @@
 #!/usr/bin/python3
-i"""
+"""
 Module contains Base class
 """
+
 
 Import json
 
 
 class Base:
     """
-manage id attribute in all your future classes
-and to avoid duplicating the same code
-"""
+    manage id attribute in all your future classes
+    and to avoid duplicating the same code
+    """
     
     __nb_objects = 0
     
     def __init__(self, id=None):
-        """Initialize"""
+        """
+        Initialize
+        """
         
         if id != None:
             self.id = id
@@ -26,8 +29,9 @@ and to avoid duplicating the same code
     @staticmethod
     def to_json_string(list_dictionaries):
         """
-JSON string representation of list_dictionaries
-"""
+        JSON string representation of list_dictionaries
+        """
+
         if list_dictionaries is None or len(list_dictionaries) == []:
             return "[]"
         else:
@@ -36,9 +40,9 @@ JSON string representation of list_dictionaries
     @classmethod
     def save_to_file(cls, list_objs):
         """
-Writes JSON rep of a
-list of objects to a file
-"""
+        Writes JSON rep of a
+        list of objects to a file
+        """
         f = cls.__name__ + ".json"
         with open(f, "w") as file:
             if list_objs is None:
@@ -50,8 +54,8 @@ list of objects to a file
     @staticmethod
     def from_json_string(json_string):
          """
-Returns reversed format of JSON string
-"""
+         Returns reversed format of JSON string
+         """
         if json_string is None or json_string == '[]':
             return []
         else:
@@ -60,8 +64,8 @@ Returns reversed format of JSON string
     @classmethod
     def create(cls, **dictionary):
         """
-returns instances with default attributes
-"""
+        returns instances with default attributes
+        """
         if cls.__name__ == "Rectangle":
             random_inst = cls(3, 2)
         elif cls.__name__ == "Square":
@@ -72,8 +76,8 @@ returns instances with default attributes
     @classmethod
     def load_from_file(cls):
         """
-returns list of instances
-"""
+        returns list of instances
+        """
         f = str(cls.__name__) + ".json"
         try:
             with open(f, "r") as file:
