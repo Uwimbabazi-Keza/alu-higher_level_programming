@@ -9,12 +9,11 @@ class Base:
     manage id attribute in all your future classes
     and to avoid duplicating the same code
     """
-    
+
     __nb_objects = 0
     
     def __init__(self, id=None):
-        """Initialize
-        """
+        """ Initialize """
         if id != None:
             self.id = id
         else:
@@ -45,13 +44,12 @@ class Base:
      
     @staticmethod
     def from_json_string(json_string):
-         """Returns reversed format of JSON string
-         """
+        """Returns reversed format of JSON string"""
         if json_string is None or json_string == '[]':
             return []
         else:
             return json.loads(json_string)
-        
+
     @classmethod
     def create(cls, **dictionary):
         """returns instances with default attributes
