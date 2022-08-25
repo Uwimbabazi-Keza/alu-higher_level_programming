@@ -3,7 +3,6 @@
 Module contains Base class
 """
 
-
 import json
 
 
