@@ -12,9 +12,21 @@ class TestMaxInteger(unittest.TestCase):
     """
     tests
     """
-    def max_tests(self):
+    def positive_int_test(self):
         self.assertEqual(max_integer([5, 2, 10, 4]), 10)
+
+    def negative_int_test(self):
         self.assertEqual(max_integer([9, 2, -10, 4]), 9)
+
+    def not_int_test(self):
         self.assertRaises(max_integer([5, 2, '10', 4]), (TypeError))
+
+    def float_test(self):
         self.assertRaises(max_integer([5, 2.3, 10.8, 4]), (TypeError))
+
+    def empty_list(self)
         self.assertRaises(max_integer([]), None)
+
+if __name__== "__main__":
+    if __name__ == '__main__':
+    unittest.main()
