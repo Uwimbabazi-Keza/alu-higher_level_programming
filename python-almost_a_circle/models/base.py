@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""Module contains Base class
-"""
+"""Module contains Base class"""
 
 import json
 
 
 class Base:
-    """manage id attribute in all your future classes
+    """
+    manage id attribute in all your future classes
     and to avoid duplicating the same code
     """
     
@@ -15,7 +15,6 @@ class Base:
     def __init__(self, id=None):
         """Initialize
         """
-        
         if id != None:
             self.id = id
         else:
@@ -26,7 +25,6 @@ class Base:
     def to_json_string(list_dictionaries):
         """JSON string representation of list_dictionaries
         """
-
         if list_dictionaries is None or len(list_dictionaries) == []:
             return "[]"
         else:
