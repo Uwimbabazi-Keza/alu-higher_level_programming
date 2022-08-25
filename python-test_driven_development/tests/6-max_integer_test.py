@@ -30,6 +30,14 @@ class TestMaxInteger(unittest.TestCase):
     def test_one_case(self):
         """"One case"""
         self.assertEqual(max_integer([1]), 1)
+   
+    def test_end(self):
+        """"end test"""
+        self.assertEqual(max_integer([2, 3, 4, 5, 8]), 8)
+
+    def test_beginning(self):
+        """"beginning test"""
+        self.assertEqual(max_integer([8, 3, 2, 4, 5]), 8)
 
 if __name__ == '__main__':
     unittest.main()
