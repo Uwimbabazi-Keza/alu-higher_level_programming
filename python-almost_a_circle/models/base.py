@@ -4,7 +4,7 @@ Module contains Base class
 """
 
 
-Import json
+import json
 
 
 class Base:
