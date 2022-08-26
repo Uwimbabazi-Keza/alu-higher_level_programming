@@ -82,9 +82,6 @@ class Rectangle(Base):
         prints
         rectangle in #
         """
-        if self.__width == 0 or self.__height == 0:
-            return ""
-        else:
-            sym = '#'
-            c = "{}".format(sym) * self.__width
-            return'\n'.join(c for i in range(self.__height))
+        sym = '#'
+        c = "{}".format(sym) * self.__width
+        return'\n'.join(c for i in range(self.__height))
