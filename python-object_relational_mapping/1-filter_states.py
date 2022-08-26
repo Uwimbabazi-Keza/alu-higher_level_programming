@@ -16,8 +16,8 @@ def states_starting_with_N():
     """
     db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
     c = db.cursor()
-    cursor.execute("SELECT * FROM states WHERE state REGEXP 'N'")
-    collect_N_states = cursor.fetchall()
+    c.execute("SELECT * FROM states WHERE state REGEXP 'N'")
+    collect_N_states = c.fetchall()
     for state in collect_N_states:
         print(state)
 
