@@ -1,120 +1,138 @@
 #!/usr/bin/python3
-"""
-Contains tests for Base class
-"""
-
 import unittest
-import inspect
+from models.square import Square
+import sys
+from io import StringIO
 import pep8
+from models.base import Base
 import json
-from models import base
-Base = base.Base
-
-
-class TestBaseDocs(unittest.TestCase):
-    """Tests to check the documentation and style of Base class"""
-    @classmethod
-    def setUpClass(cls):
-        """Set up for the doc tests"""
-        cls.base_funcs = inspect.getmembers(Base, inspect.isfunction)
-
-    def test_pep8_conformance_base(self):
-        """Test that models/base.py conforms to PEP8."""
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/base.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
-
-    def test_pep8_conformance_test_base(self):
-        """Test that tests/test_models/test_base.py conforms to PEP8."""
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['tests/test_models/test_base.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
-
-    def test_module_docstring(self):
-        """Tests for the module docstring"""
-        self.assertTrue(len(base.__doc__) >= 1)
-
-    def test_class_docstring(self):
-        """Tests for the Base class docstring"""
-        self.assertTrue(len(Base.__doc__) >= 1)
-
-    def test_func_docstrings(self):
-        """Tests for the presence of docstrings in all functions"""
-        for func in self.base_funcs:
-            self.assertTrue(len(func[1].__doc__) >= 1)
+from models.rectangle import Rectangle
+import os
+"""
+This module contains all unittest for Base class
+"""
 
 
 class TestBase(unittest.TestCase):
-    """Tests to check functionality of Base class"""
-    def test_too_many_args(self):
-        """test too many args to init"""
-        with self.assertRaises(TypeError):
-            b = Base(1, 1)
+    """
+    Class of functions to run tests
+    """
+    def setUp(self):
+        """
+        function to redirect stdout
+        """
+        sys.stdout = StringIO()
 
-    def test_no_id(self):
-        """Tests id as None"""
-        b = Base()
-        self.assertEqual(b.id, 1)
+    def tearDown(self):
+        """
+        cleans everything
+        """
+        sys.stdout = sys.__stdout__
 
-    def test_id_set(self):
-        """Tests id as not None"""
-        b98 = Base(98)
-        self.assertEqual(b98.id, 98)
+    def test_pep8_model(self):
+        """
+        Tests for pep8 model
+        """
+        p8 = pep8.StyleGuide(quiet=True)
+        p = p8.check_files(['models/base.py'])
+        self.assertEqual(p.total_errors, 0, "fix pep8")
 
-    def test_no_id_after_set(self):
-        """Tests id as None after not None"""
-        b2 = Base()
-        self.assertEqual(b2.id, 2)
+    def test_pep8_test(self):
+        """
+        Tests for pep8 test
+        """
+        p8 = pep8.StyleGuide(quiet=True)
+        p = p8.check_files(['tests/test_models/test_base.py'])
+        self.assertEqual(p.total_errors, 0, "fix pep8")
 
-    def test_nb_private(self):
-        """Tests nb_objects as a private instance attribute"""
-        b = Base(3)
-        with self.assertRaises(AttributeError):
-            print(b.nb_objects)
-        with self.assertRaises(AttributeError):
-            print(b.__nb_objects)
+    def test_docstrings(self):
+        self.assertIsNotNone(Base.__doc__)
+        self.assertIs(hasattr(Base, "__init__"), True)
+        self.assertIsNotNone(Base.__init__.__doc__)
+        self.assertIs(hasattr(Base, "create"), True)
+        self.assertIsNotNone(Base.create.__doc__)
+        self.assertIs(hasattr(Base, "to_json_string"), True)
+        self.assertIsNotNone(Base.to_json_string.__doc__)
+        self.assertIs(hasattr(Base, "from_json_string"), True)
+        self.assertIsNotNone(Base.from_json_string.__doc__)
+        self.assertIs(hasattr(Base, "save_to_file"), True)
+        self.assertIsNotNone(Base.save_to_file.__doc__)
+        self.assertIs(hasattr(Base, "load_from_file"), True)
+        self.assertIsNotNone(Base.load_from_file.__doc__)
 
-    def test_to_json_string(self):
-        """Tests regular to json string"""
+    def test_id(self):
+        """
+        Test check for id
+        """
         Base._Base__nb_objects = 0
-        d1 = {"id": 9, "width": 5, "height": 6, "x": 7, "y": 8}
-        d2 = {"id": 2, "width": 2, "height": 3, "x": 4, "y": 0}
-        json_s = Base.to_json_string([d1, d2])
-        self.assertTrue(type(json_s) is str)
-        d = json.loads(json_s)
-        self.assertEqual(d, [d1, d2])
-
-    def test_empty_to_json_string(self):
-        """Test for passing empty list/ None"""
-        json_s = Base.to_json_string([])
-        self.assertTrue(type(json_s) is str)
-        self.assertEqual(json_s, "[]")
-
-    def test_None_to_json_String(self):
-        json_s = Base.to_json_string(None)
-        self.assertTrue(type(json_s) is str)
-        self.assertEqual(json_s, "[]")
+        b1 = Base()
+        b2 = Base()
+        b3 = Base()
+        b4 = Base(12)
+        b5 = Base()
+        self.assertEqual(b1.id, 1)
+        self.assertEqual(b2.id, 2)
+        self.assertEqual(b3.id, 3)
+        self.assertEqual(b4.id, 12)
+        self.assertEqual(b5.id, 4)
 
     def test_from_json_string(self):
-        """Tests regular from_json_string"""
-        json_str = '[{"id": 9, "width": 5, "height": 6, "x": 7, "y": 8}, \
-{"id": 2, "width": 2, "height": 3, "x": 4, "y": 0}]'
-        json_l = Base.from_json_string(json_str)
-        self.assertTrue(type(json_l) is list)
-        self.assertEqual(len(json_l), 2)
-        self.assertTrue(type(json_l[0]) is dict)
-        self.assertTrue(type(json_l[1]) is dict)
-        self.assertEqual(json_l[0],
-                         {"id": 9, "width": 5, "height": 6, "x": 7, "y": 8})
-        self.assertEqual(json_l[1],
-                         {"id": 2, "width": 2, "height": 3, "x": 4, "y": 0})
+        """
+        Test check from json string
+        """
+        self.assertEqual(Base.to_json_string(None), "[]")
+        self.assertEqual(Base.to_json_string([]), "[]")
+        with self.subTest():
+            r1 = Rectangle(10, 7, 2, 8, 1)
+            r1_dict = r1.to_dictionary()
+            json_dict = Base.to_json_string([r1_dict])
+            self.assertEqual(r1_dict, {'x': 2, 'width': 10,
+                                       'id': 1, 'height': 7,
+                                       'y': 8})
+            self.assertIs(type(r1_dict), dict)
+            self.assertIs(type(json_dict), str)
+            self.assertEqual(json.loads(json_dict), json.loads('[{"x": 2, '
+                                                               '"width": 10, '
+                                                               '"id": 1, '
+                                                               '"height": 7, '
+                                                               '"y": 8}]'))
 
-    def test_fjs_empty(self):
-        """Tests from_json_string with an empty string"""
-        self.assertEqual([], Base.from_json_string(""))
+    def test_rectangle(self):
+        """
+        Test check for rectangle
+        """
+        R1 = Rectangle(4, 5, 6)
+        R1_dict = R1.to_dictionary()
+        R2 = Rectangle.create(**R1_dict)
+        self.assertNotEqual(R1, R2)
 
-    def test_fjs_None(self):
-        """Tests from_json_string with an empty string"""
-        self.assertEqual([], Base.from_json_string(None))
+    def test_square(self):
+        """
+        Test check for square creation
+        """
+        S1 = Square(44, 55, 66, 77)
+        S1_dict = S1.to_dictionary()
+        S2 = Rectangle.create(**S1_dict)
+        self.assertNotEqual(S1, S2)
+
+    def test_file_rectangle(self):
+        """
+        Test check if file loads from rectangle
+        """
+        R1 = Rectangle(33, 34, 35, 26)
+        R2 = Rectangle(202, 2)
+        lR = [R1, R2]
+        Rectangle.save_to_file(lR)
+        lR2 = Rectangle.load_from_file()
+        self.assertNotEqual(lR, lR2)
+
+    def test_file_square(self):
+        """
+        Test check if file loads from square
+        """
+        S1 = Square(22)
+        S2 = Square(44, 44, 55, 66)
+        lS = [S1, S2]
+        Square.save_to_file(lS)
+        lS2 = Square.load_from_file()
+        self.assertNotEqual(lS, lS2)
