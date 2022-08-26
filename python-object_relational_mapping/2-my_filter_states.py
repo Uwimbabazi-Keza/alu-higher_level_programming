@@ -16,7 +16,7 @@ def state_name_searched():
     c = db.cursor()
     c.\
             execute("SELECT * FROM states WHERE BINARY name = '{}' \
-                    ORDER BY id".format(sys.argv[4]))
+            ORDER BY id".format(sys.argv[4]))
     collection = c.fetchall()
     for state in collection:
         print(state)
