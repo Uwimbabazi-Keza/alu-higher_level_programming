@@ -15,7 +15,7 @@ def all_cities_by_state():
     of respective state
     """
 
-    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
+    db = MySQLdb.connect(user=argv[1], passwd=argv[2], db=argv[3])
     c = db.cursor()
     c.\
         execute("SELECT cities.id, cities.name, states.name\
