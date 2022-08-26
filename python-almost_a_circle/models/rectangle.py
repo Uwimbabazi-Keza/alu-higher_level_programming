@@ -109,5 +109,15 @@ class Rectangle(Base):
                 self.x = args[3]
             if len(args) > 4:
                 self.y = args[4]
-        else:
-            pass
+        
+        elif for key, value in kwargs.items():
+            if key == "id" and value is None:
+                self.id = value
+            if key == "width":
+                self.width = value
+            if key == "height":
+                self.height = value
+            if key == "x":
+                self.x = value
+            if key == "y":
+                self.y = value
