@@ -10,12 +10,15 @@ import MySQLdb
 
 
 def all_cities_by_state():
-    """lists all cities of respective state"""
+    """lists all cities
+    of respective state"""
     db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
     c = db.cursor()
     c.\
-        execute("SELECT * FROM cities JOIN states\
-                ON cities.state_id = states.id ORDER BY cities.id")
+        execute("SELECT cities.name FROM cities\
+                    JOIN states ON cities.state_id = states.id\
+                    AND states.name = %s\
+                    ORDER BY cities.id", (sys.argv[4],))
 
     collection = c.fetchall()
     [print(", ".join([state[1] for state in collection])
