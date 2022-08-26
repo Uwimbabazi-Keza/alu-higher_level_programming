@@ -6,6 +6,7 @@ Module contains class square that inherits from Rectangle
 
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     """sub class of Rectangle"""
     def __init__(self, size, x=0, y=0, id=None):
@@ -14,6 +15,5 @@ class Square(Rectangle):
 
     def __str__(self):
         """return [Square] (<id>) <x>/<y> - <size>"""
-        return ('[Square] ({}) {}/{} - {}'\
-                .format(self.id, self.x, self.y, self.width))
-
+        return '[Square] ({}) {}/{} - {}'\
+                .format(self.id, self.x, self.y, self.width)
