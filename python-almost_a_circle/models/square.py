@@ -4,7 +4,7 @@ Module contains class square that inherits from Rectangle
 """
 
 
-from models.square import Square
+from models.rectangle import Rectangle
 
 class Square(Rectangle):
     """sub class of Rectangle"""
