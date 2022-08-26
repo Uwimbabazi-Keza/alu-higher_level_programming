@@ -14,13 +14,15 @@ def all_cities_by_state():
     lists all cities
     of respective state
     """
+
     db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
     c = db.cursor()
     c.\
-        execute("SELECT cities.name FROM cities\
-                JOIN states ON cities.state_id = states.id\
-                AND states.name = %s\
-                ORDER BY cities.id", (sys.argv[4],))
+        execute("SELECT cities.id, cities.name, states.name\
+                FROM cities LEFT JOIN\
+                states ON cities.state_id = states.id\
+                WHERE states.name=%s ORDER by cities.id;",
+                (argv[4], ))
 
     collection = c.fetchall()
     [print(", ".join([state[1] for state in collection])
