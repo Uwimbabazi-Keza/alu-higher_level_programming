@@ -10,7 +10,7 @@ import sys
 import MySQLdb
 
 
-def states_starting_with_N:
+def states_starting_with_N():
     """
     lists states starting with N
     """
