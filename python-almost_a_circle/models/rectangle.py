@@ -85,5 +85,6 @@ class Rectangle(Base):
         if self.__width == 0 or self.__height == 0:
             return ""
         else:
-            c = "{}".format(self.print_symbol) * self.__width
+            sym = '#'
+            c = sym * self.__widthh
             return'\n'.join(c for i in range(self.__height))
