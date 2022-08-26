@@ -5,7 +5,7 @@ using the database hbtn_0e_4_usa
 """
 
 
-import sys
+from sys import argv
 import MySQLdb
 
 
