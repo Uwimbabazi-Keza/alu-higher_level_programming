@@ -82,6 +82,7 @@ class Rectangle(Base):
         prints
         rectangle in #
         """
-        sym = '#'
-        c = "{}".format(sym) * self.__width
-        return'\n'.join(c for i in range(self.__height))
+        for i in range(self.__y):
+            print("")
+        for i in range(self.__height):
+            print(self.__x * " " + '#' * self.__width)
