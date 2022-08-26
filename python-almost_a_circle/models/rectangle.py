@@ -96,7 +96,7 @@ class Rectangle(Base):
             .format(self.id, self.__x, self.__y, self.__width, self.__height)
         return (s)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """assigns argument to each attribute"""
         if args is not None and len(args) != 0:
             if len(args) >= 1:
