@@ -18,9 +18,7 @@ def all_cities_by_state():
                 ON cities.state_id = states.id ORDER BY cities.id")
 
     collection = c.fetchall()
-    for state in collection:
-        print(', '.join([state[1]]))
-
+    [print(", ".join([state[1] for state in collection])
 
 if __name__ == "__main__":
     all_cities_by_state()
