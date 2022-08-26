@@ -27,5 +27,6 @@ def all_cities_by_state():
     collection = c.fetchall()
     print(", ".join([state[1] for state in collection]))
 
+
 if __name__ == "__main__":
     all_cities_by_state()
