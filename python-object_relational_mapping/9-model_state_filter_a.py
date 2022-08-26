@@ -15,8 +15,9 @@ if __name__ == '__main__':
                            .format(sys.argv[1], sys.argv[2],
                                    sys.argv[3]), pool_pre_ping=True)
 
-    session = sessionmaker(bind=engine)
+    Session = sessionmaker(bind=engine)
+    s = Session()
 
-    for state in session.query(State).order_by(State.id):
+    for state in s.query(State).order_by(State.id):
         if 'a' in state.name:
             print('{}: {}'.format(state.id, state.name))
