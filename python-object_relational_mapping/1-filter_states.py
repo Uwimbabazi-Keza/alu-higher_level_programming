@@ -16,7 +16,7 @@ def states_starting_with_N():
     """
     db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
     c = db.cursor()
-    c.execute("SELECT * FROM states WHERE name REGEXP BINARY '^N'" "ORDER BY id")
+    c.execute("SELECT * FROM states WHERE name REGEXP BINARY 'N'" "ORDER BY id")
     collect_N_states = c.fetchall()
     for state in collect_N_states:
         print(state)
