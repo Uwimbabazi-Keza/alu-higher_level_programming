@@ -55,7 +55,7 @@ class Rectangle(Base):
         """sets x attribute"""
         if type(x) != int:
             raise TypeError("x must be an integer")
-        if height < 0:
+        if x < 0:
             raise ValueError("x must be >= 0")
         self.__x = x
 
